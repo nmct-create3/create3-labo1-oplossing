@@ -248,10 +248,7 @@ input::placeholder {
 
 .o-row--login {
     min-height: 100vh;
-    display: -webkit-flex;
-    display: -ms-flex;
     display: flex;
-    -ms-align-items: center;
     align-items: center;
 }
 
