@@ -509,7 +509,7 @@ input::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: calc(var(--global-whitespace-lg) * -1);
+    margin-bottom: var(--global-whitespace-xl);
 }
 
 .c-logo__symbol {
