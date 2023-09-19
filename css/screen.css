@@ -51,7 +51,7 @@
     --global-transitionTiming-alpha: .1s ease-out;
 
     /* Baseline settings */
-    --global-baseline: 8px;
+    --global-baseline: .5rem;
     --global-whitespace: calc(var(--global-baseline) * 3);
     /* = 24px */
 
@@ -136,19 +136,19 @@ h3 {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 2.25rem;
     line-height: calc(var(--global-baseline) * 6);
     margin: 0 0 var(--global-whitespace);
 }
 
 h2 {
-    font-size: 32px;
+    font-size: 2rem;
     line-height: calc(var(--global-baseline) * 5);
     margin: 0 0 var(--global-whitespace);
 }
 
 h3 {
-    font-size: 26px;
+    font-size: 1.125rem;
     line-height: calc(var(--global-baseline) * 4);
     margin: 0 0 var(--global-whitespace);
 }
@@ -156,7 +156,7 @@ h3 {
 h4,
 h5,
 h6 {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     line-height: calc(var(--global-baseline) * 3);
     margin: 0 0 var(--global-whitespace);
@@ -184,7 +184,7 @@ li ol {
 
 blockquote {
     font-style: normal;
-    font-size: 23px;
+    font-size: 1.375rem;
     line-height: calc(var(--global-baseline) * 6);
     margin: 0 0 var(--global-whitespace);
 }
@@ -196,7 +196,7 @@ blockquote * {
 
 figcaption {
     font-weight: 400;
-    font-size: 12px;
+    font-size: .75rem;
     line-height: calc(var(--global-baseline) * 2);
     margin-top: var(--global-whitespace-xxs);
 }
@@ -555,7 +555,7 @@ input::placeholder {
 
 .c-card__title {
     text-align: center;
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: calc(var(--global-baseline) * 3);
     font-weight: 600;
 }
@@ -606,7 +606,7 @@ input::placeholder {
     color: var(--global-color-neutral-xxxx-dark);
     background-color: White;
     font-family: inherit;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: calc(var(--global-baseline) * 3);
     padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
     outline: none;
@@ -637,7 +637,7 @@ input::placeholder {
 
 .c-label {
     margin-bottom: 0;
-    font-size: 14px;
+    font-size: .875rem;
     padding-bottom: var(--global-whitespace-xs);
     line-height: calc(var(--global-baseline) * 2);
     color: var(--global-color-neutral-xx-dark);
@@ -654,7 +654,7 @@ input::placeholder {
 */
 
 .c-button {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
     border-radius: var(--global-borderRadius);
     border: var(--global-borderWidth) solid var(--global-color-alpha-dark);
@@ -783,7 +783,7 @@ input::placeholder {
 */
 
 .u-text-sm {
-    font-size: 14px;
+    font-size: .875rem;
 }
 
 /*
