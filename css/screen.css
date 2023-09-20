@@ -14,34 +14,34 @@
     src: url("../fonts/Inter-SemiBold.woff2") format("woff2")
 }
 
-/*------------------------------------*\
-#Variables
-\*------------------------------------*/
+/*---------------------------------------/*
+ # SETTINGS
+/*---------------------------------------*/
 
 :root {
     /* colors */
-    --global-color-alpha-h: 216deg;
-    --global-color-alpha-s: 100%;
-    --global-color-alpha-l: 60%;
-    --global-color-alpha-hsl: var(--global-color-alpha-h) var(--global-color-alpha-s) var(--global-color-alpha-l);
-    --global-color-alpha: hsl(var(--global-color-alpha-hsl));
-    --global-color-alpha-light: hsl(var(--global-color-alpha-h) 100% 65%);
-    --global-color-alpha-dark: hsl(var(--global-color-alpha-h) 80% 55%);
-    --global-color-alpha-x-dark: hsl(var(--global-color-alpha-h) 65% 35%);
-    --global-color-alpha-transparent: hsl(var(--global-color-alpha-hsl) / .75);
-    --global-color-alpha-x-transparent: hsl(var(--global-color-alpha-hsl) / .3);
+    --global-color-primary-h: 216deg;
+    --global-color-primary-s: 100%;
+    --global-color-primary-l: 60%;
+    --global-color-primary-500-hsl: var(--global-color-primary-h) var(--global-color-primary-s) var(--global-color-primary-l);
+    --global-color-primary-500: hsl(var(--global-color-primary-500-hsl));
+    --global-color-primary-400: hsl(var(--global-color-primary-h) 100% 65%);
+    --global-color-primary-600: hsl(var(--global-color-primary-h) 80% 55%);
+    --global-color-primary-700: hsl(var(--global-color-primary-h) 65% 35%);
+    --global-color-primary-500-alpha-75: hsl(var(--global-color-primary-500-hsl) / .75);
+    --global-color-primary-500-alpha-30: hsl(var(--global-color-primary-500-hsl) / .3);
 
-    --global-color-neutral-xxxx-light: #F5F6FA;
-    --global-color-neutral-xxx-light: #E2E3E7;
-    --global-color-neutral-xx-light: #caccd4;
-    --global-color-neutral-x-light: #b5b6c0;
-    --global-color-neutral-light: #a0a1ad;
-    --global-color-neutral: #8b8c9a;
-    --global-color-neutral-dark: #757787;
-    --global-color-neutral-x-dark: #606274;
-    --global-color-neutral-xx-dark: #4b4c60;
-    --global-color-neutral-xxx-dark: #35374d;
-    --global-color-neutral-xxxx-dark: #20223a;
+    --global-color-neutral-050: #F5F6FA;
+    --global-color-neutral-100: #E2E3E7;
+    --global-color-neutral-200: #caccd4;
+    --global-color-neutral-300: #b5b6c0;
+    --global-color-neutral-400: #a0a1ad;
+    --global-color-neutral-500: #8b8c9a;
+    --global-color-neutral-600: #757787;
+    --global-color-neutral-700: #606274;
+    --global-color-neutral-800: #4b4c60;
+    --global-color-neutral-900: #35374d;
+    --global-color-neutral-950: #20223a;
 
     /* border stuff */
     --global-borderRadius: 3px;
@@ -69,58 +69,51 @@
     /*  = 72px */
 }
 
-/*------------------------------------*\
-#GENERIC
-\*------------------------------------*/
-
-/*
-    Generic: Page
-    ---
-    Global page styles + universal box-sizing:
-*/
-
-html {
-    line-height: 1.5;
-    font-family: "Inter Web", Helvetica, arial, sans-serif;
-    color: var(--global-color-neutral-xxxx-dark);
-    background-color: var(--global-color-neutral-xxxx-light);
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+/*---------------------------------------/*
+ # GENERIC
+/*---------------------------------------*/
 
 *,
 *:before,
 *:after {
     box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    font-weight: normal;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/*---------------------------------------/*
+ # ELEMENTS
+/*---------------------------------------*/
+/*
+    Elements: Page
+    ---
+    Default markup for page level elements
+*/
+
+html {
+    line-height: 1.5;
+    font-family: "Inter Web", Helvetica, arial, sans-serif;
+    color: var(--global-color-neutral-950);
+    background-color: var(--global-color-neutral-050);
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /*
-* Remove text-shadow in selection highlight:
-* https://twitter.com/miketaylr/status/12228805301
-*
-* Customize the background color to match your design.
+    Customize the background color and color to match your design.
 */
 
 ::selection {
-    background: var(--global-color-alpha);
+    background: var(--global-color-primary-500);
     color: white;
-    text-shadow: none;
-}
-
-/*------------------------------------*\
-#Elements
-\*------------------------------------*/
-
-/*
-Elements: Images
----
-Default markup for images to make them responsive
-*/
-
-img {
-    max-width: 100%;
-    vertical-align: top;
 }
 
 /*
@@ -177,9 +170,12 @@ ol {
     padding-left: var(--global-whitespace);
 }
 
-li ul,
-li ol {
-    margin-bottom: 0;
+li {
+
+    & ul,
+    & ol {
+        margin-bottom: 0;
+    }
 }
 
 blockquote {
@@ -208,22 +204,26 @@ hr {
     margin: 0 0 var(--global-whitespace);
 }
 
-a,
-a:visited {
-    transition: all var(--global-transitionTiming-alpha);
-    color: var(--global-color-alpha);
-    outline-color: var(--global-link-BoxShadowColor);
-    outline-width: medium;
-    outline-offset: 2px;
-}
+a {
 
-a:hover,
-a:focus {
-    color: var(--global-color-alpha-light);
-}
+    &,
+    &:visited {
+        transition: all var(--global-transitionTiming-alpha);
+        color: var(--global-color-primary-500);
+        outline-color: var(--global-link-BoxShadowColor);
+        outline-width: medium;
+        outline-offset: 2px;
+    }
 
-a:active {
-    color: var(--global-color-alpha-dark);
+    &:hover,
+    &:focus {
+        color: var(--global-color-primary-400);
+    }
+
+    &:active {
+        color: var(--global-color-primary-600);
+    }
+
 }
 
 label,
@@ -232,7 +232,7 @@ input {
 }
 
 input::placeholder {
-    color: var(--global-color-neutral-x-light);
+    color: var(--global-color-neutral-300);
 }
 
 /*------------------------------------*\
@@ -257,20 +257,6 @@ input::placeholder {
     align-items: center;
 }
 
-/* size modifiers */
-
-.o-row--lg {
-    padding-top: var(--global-whitespace-lg);
-    padding-bottom: var(--global-whitespace);
-}
-
-@media (min-width: 768px) {
-    .o-row {
-        padding-left: var(--global-whitespace-lg);
-        padding-right: var(--global-whitespace-lg);
-    }
-}
-
 /*
     Objects: Container
     ---
@@ -283,35 +269,6 @@ input::placeholder {
     max-width: 79.5em;
     /* 79.5 * 16px = 1272 */
     width: 100%;
-}
-
-/*
-    Objects: section
-    ---
-    Creates vertical whitespace between adjacent sections inside a row
-*/
-
-.o-section {
-    display: flow-root;
-    position: relative;
-}
-
-.o-section+.o-section {
-    padding-top: var(--global-whitespace);
-}
-
-@media (min-width: 768px) {
-
-    .o-section--lg+.o-section--lg,
-    .o-section--xl+.o-section--xl {
-        padding-top: var(--global-whitespace-lg);
-    }
-}
-
-@media (min-width: 992px) {
-    .o-section--xl+.o-section--xl {
-        padding-top: var(--global-whitespace-xxl);
-    }
 }
 
 /*
@@ -334,35 +291,33 @@ input::placeholder {
 /* gutter modifiers, these affect o-layout__item too */
 
 .o-layout--gutter {
-    margin: 0 -12px;
+    margin-left: calc(var(--global-whitespace) / -2);
+    margin-right: calc(var(--global-whitespace) / -2);
 }
 
 .o-layout--gutter>.o-layout__item {
-    padding: 0 12px;
+    padding-left: calc(var(--global-whitespace) / 2);
+    padding-right: calc(var(--global-whitespace) / 2);
 }
 
-.o-layout--gutter-sm {
-    margin: 0 -6px;
+.o-layout--gutter-s {
+    margin-left: calc(var(--global-whitespace-sm) * -1);
+    margin-right: calc(var(--global-whitespace-sm) * -1);
 }
 
-.o-layout--gutter-sm>.o-layout__item {
-    padding: 0 6px;
+.o-layout--gutter-s>.o-layout__item {
+    padding-left: var(--global-whitespace-sm);
+    padding-right: var(--global-whitespace-sm);
 }
 
-.o-layout--gutter-lg {
-    margin: 0 calc(var(--global-whitespace) * -1);
+.o-layout--gutter-l {
+    margin-left: calc(var(--global-whitespace-md) * -1);
+    margin-right: calc(var(--global-whitespace-md) * -1);
 }
 
-.o-layout--gutter-lg>.o-layout__item {
-    padding: 0 var(--global-whitespace);
-}
-
-.o-layout--gutter-xl {
-    margin: 0 calc(var(--global-whitespace-lg) * -1);
-}
-
-.o-layout--gutter-xl>.o-layout__item {
-    padding: 0 var(--global-whitespace-lg);
+.o-layout--gutter-l>.o-layout__item {
+    padding-left: var(--global-whitespace-md);
+    padding-right: var(--global-whitespace-md);
 }
 
 /* reverse horizontal row modifier */
@@ -517,15 +472,15 @@ input::placeholder {
 }
 
 .c-logo__path--1 {
-    fill: var(--global-color-neutral-xxxx-dark);
+    fill: var(--global-color-neutral-950);
 }
 
 .c-logo__path--2 {
-    fill: var(--global-color-alpha);
+    fill: var(--global-color-primary-500);
 }
 
 .c-logo__path--3 {
-    fill: var(--global-color-alpha-x-dark);
+    fill: var(--global-color-primary-700);
 }
 
 /*
@@ -550,7 +505,7 @@ input::placeholder {
 
 .c-card__footer {
     text-align: center;
-    border-top: var(--global-borderWidth) solid var(--global-color-neutral-xxx-light);
+    border-top: var(--global-borderWidth) solid var(--global-color-neutral-100);
 }
 
 .c-card__title {
@@ -558,6 +513,10 @@ input::placeholder {
     font-size: 1.125rem;
     line-height: calc(var(--global-baseline) * 3);
     font-weight: 600;
+
+    @media (min-width: 27em) {
+        margin-bottom: var(--global-whitespace-xl);
+    }
 }
 
 /* This allows c-card__body and __footer to have equal padding everywhere */
@@ -572,10 +531,6 @@ input::placeholder {
 @media (min-width: 27em) {
     .c-card__body {
         padding: var(--global-whitespace-xl);
-    }
-
-    .c-card__title {
-        margin-bottom: var(--global-whitespace-xl);
     }
 }
 
@@ -601,9 +556,9 @@ input::placeholder {
     -moz-appearance: none;
     appearance: none;
     width: 100%;
-    border: var(--global-borderWidth) solid var(--global-color-neutral-xxx-light);
+    border: var(--global-borderWidth) solid var(--global-color-neutral-100);
     border-radius: var(--global-borderRadius);
-    color: var(--global-color-neutral-xxxx-dark);
+    color: var(--global-color-neutral-950);
     background-color: White;
     font-family: inherit;
     font-size: 1rem;
@@ -611,16 +566,16 @@ input::placeholder {
     padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
     outline: none;
     transition: border var(--global-transition-timing-alpha);
-}
 
-.c-input:hover {
-    border-color: var(--global-color-neutral-xx-light);
-}
+    &:hover {
+        border-color: var(--global-color-neutral-200);
+    }
 
-.c-input:focus,
-.c-input:active {
-    border-color: var(--global-color-alpha);
-    box-shadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+    &:focus,
+    &:active {
+        border-color: var(--global-color-primary-500);
+        box-shadow: 0 0 0 3px var(--global-color-primary-500-alpha-30);
+    }
 }
 
 /* option input for checkboxes and radio buttons */
@@ -640,7 +595,7 @@ input::placeholder {
     font-size: .875rem;
     padding-bottom: var(--global-whitespace-xs);
     line-height: calc(var(--global-baseline) * 2);
-    color: var(--global-color-neutral-xx-dark);
+    color: var(--global-color-neutral-800);
 }
 
 .c-label--option {
@@ -657,27 +612,27 @@ input::placeholder {
     font-size: 1rem;
     font-weight: 700;
     border-radius: var(--global-borderRadius);
-    border: var(--global-borderWidth) solid var(--global-color-alpha-dark);
-    background-color: var(--global-color-alpha);
+    border: var(--global-borderWidth) solid var(--global-color-primary-600);
+    background-color: var(--global-color-primary-500);
     color: #fff;
     padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
     line-height: calc(var(--global-baseline) * 3);
     width: 100%;
     outline: none;
     transition: all var(--global-transition-timing-alpha);
-}
 
-.c-button:hover {
-    background-color: var(--global-color-alpha-light);
-}
+    &:hover {
+        background-color: var(--global-color-primary-400);
+    }
 
-.c-button:focus {
-    box-shadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
-}
+    &:focus {
+        box-shadow: 0 0 0 3px var(--global-color-primary-500-alpha-30);
+    }
 
-.c-button:active {
-    background-color: var(--global-color-alpha-dark);
-    box-shadow: none;
+    &:active {
+        background-color: var(--global-color-primary-600);
+        box-shadow: none;
+    }
 }
 
 /*------------------------------------*\
@@ -690,12 +645,12 @@ input::placeholder {
     Utility classes to put specific colors onto elements
 */
 
-.u-color-neutral {
-    color: var(--global-color-neutral);
+.u-color-neutral-500 {
+    color: var(--global-color-neutral-500);
 }
 
-.u-color-neutral-dark {
-    color: var(--global-color-neutral-dark);
+.u-color-neutral-600 {
+    color: var(--global-color-neutral-600);
 }
 
 /*
@@ -787,350 +742,501 @@ input::placeholder {
 }
 
 /*
-    Utility: Widths
+    Utilities: Widths
     ---
-    Utility classes to put specific widths onto elements
-    Will be mostly used on o-layout__item
+    Width utility classes
 */
 
-.u-width-auto {
-    width: auto !important;
+.u-flex-basis-auto {
+    flex-basis: auto;
 }
 
 .u-1-of-2 {
-    width: 50% !important;
+    flex-basis: 50% !important;
+}
+
+.u-2-of-2 {
+    flex-basis: 100% !important;
 }
 
 .u-1-of-3 {
-    width: 33.3333333333% !important;
+    flex-basis: 33.3333333333% !important;
 }
 
 .u-2-of-3 {
-    width: 66.6666666667% !important;
+    flex-basis: 66.6666666667% !important;
+}
+
+.u-3-of-3 {
+    flex-basis: 100% !important;
 }
 
 .u-1-of-4 {
-    width: 25% !important;
+    flex-basis: 25% !important;
+}
+
+.u-2-of-4 {
+    flex-basis: 50% !important;
 }
 
 .u-3-of-4 {
-    width: 75% !important;
+    flex-basis: 75% !important;
+}
+
+.u-4-of-4 {
+    flex-basis: 100% !important;
 }
 
 .u-1-of-5 {
-    width: 20% !important;
+    flex-basis: 20% !important;
 }
 
 .u-2-of-5 {
-    width: 40% !important;
+    flex-basis: 40% !important;
 }
 
 .u-3-of-5 {
-    width: 60% !important;
+    flex-basis: 60% !important;
 }
 
 .u-4-of-5 {
-    width: 80% !important;
+    flex-basis: 80% !important;
+}
+
+.u-5-of-5 {
+    flex-basis: 100% !important;
 }
 
 .u-1-of-6 {
-    width: 16.6666666667% !important;
+    flex-basis: 16.6666666667% !important;
+}
+
+.u-2-of-6 {
+    flex-basis: 33.3333333333% !important;
+}
+
+.u-3-of-6 {
+    flex-basis: 50% !important;
+}
+
+.u-4-of-6 {
+    flex-basis: 66.6666666667% !important;
 }
 
 .u-5-of-6 {
-    width: 83.3333333333% !important;
+    flex-basis: 83.3333333333% !important;
 }
 
-@media (min-width: 576px) {
+.u-6-of-6 {
+    flex-basis: 100% !important;
+}
+
+@media (min-width: 36.0625em) {
     .u-1-of-2-bp1 {
-        width: 50% !important;
+        flex-basis: 50% !important;
+    }
+
+    .u-2-of-2-bp1 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-3-bp1 {
-        width: 33.3333333333% !important;
+        flex-basis: 33.3333333333% !important;
     }
 
     .u-2-of-3-bp1 {
-        width: 66.6666666667% !important;
+        flex-basis: 66.6666666667% !important;
+    }
+
+    .u-3-of-3-bp1 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-4-bp1 {
-        width: 25% !important;
+        flex-basis: 25% !important;
+    }
+
+    .u-2-of-4-bp1 {
+        flex-basis: 50% !important;
     }
 
     .u-3-of-4-bp1 {
-        width: 75% !important;
+        flex-basis: 75% !important;
+    }
+
+    .u-4-of-4-bp1 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-5-bp1 {
-        width: 20% !important;
+        flex-basis: 20% !important;
     }
 
     .u-2-of-5-bp1 {
-        width: 40% !important;
+        flex-basis: 40% !important;
     }
 
     .u-3-of-5-bp1 {
-        width: 60% !important;
+        flex-basis: 60% !important;
     }
 
     .u-4-of-5-bp1 {
-        width: 80% !important;
+        flex-basis: 80% !important;
+    }
+
+    .u-5-of-5-bp1 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-6-bp1 {
-        width: 16.6666666667% !important;
+        flex-basis: 16.6666666667% !important;
+    }
+
+    .u-2-of-6-bp1 {
+        flex-basis: 33.3333333333% !important;
+    }
+
+    .u-3-of-6-bp1 {
+        flex-basis: 50% !important;
+    }
+
+    .u-4-of-6-bp1 {
+        flex-basis: 66.6666666667% !important;
     }
 
     .u-5-of-6-bp1 {
-        width: 83.3333333333% !important;
+        flex-basis: 83.3333333333% !important;
+    }
+
+    .u-6-of-6-bp1 {
+        flex-basis: 100% !important;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48.0625em) {
     .u-1-of-2-bp2 {
-        width: 50% !important;
+        flex-basis: 50% !important;
+    }
+
+    .u-2-of-2-bp2 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-3-bp2 {
-        width: 33.3333333333% !important;
+        flex-basis: 33.3333333333% !important;
     }
 
     .u-2-of-3-bp2 {
-        width: 66.6666666667% !important;
+        flex-basis: 66.6666666667% !important;
+    }
+
+    .u-3-of-3-bp2 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-4-bp2 {
-        width: 25% !important;
+        flex-basis: 25% !important;
+    }
+
+    .u-2-of-4-bp2 {
+        flex-basis: 50% !important;
     }
 
     .u-3-of-4-bp2 {
-        width: 75% !important;
+        flex-basis: 75% !important;
+    }
+
+    .u-4-of-4-bp2 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-5-bp2 {
-        width: 20% !important;
+        flex-basis: 20% !important;
     }
 
     .u-2-of-5-bp2 {
-        width: 40% !important;
+        flex-basis: 40% !important;
     }
 
     .u-3-of-5-bp2 {
-        width: 60% !important;
+        flex-basis: 60% !important;
     }
 
     .u-4-of-5-bp2 {
-        width: 80% !important;
+        flex-basis: 80% !important;
+    }
+
+    .u-5-of-5-bp2 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-6-bp2 {
-        width: 16.6666666667% !important;
+        flex-basis: 16.6666666667% !important;
+    }
+
+    .u-2-of-6-bp2 {
+        flex-basis: 33.3333333333% !important;
+    }
+
+    .u-3-of-6-bp2 {
+        flex-basis: 50% !important;
+    }
+
+    .u-4-of-6-bp2 {
+        flex-basis: 66.6666666667% !important;
     }
 
     .u-5-of-6-bp2 {
-        width: 83.3333333333% !important;
+        flex-basis: 83.3333333333% !important;
+    }
+
+    .u-6-of-6-bp2 {
+        flex-basis: 100% !important;
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62.0625em) {
     .u-1-of-2-bp3 {
-        width: 50% !important;
+        flex-basis: 50% !important;
+    }
+
+    .u-2-of-2-bp3 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-3-bp3 {
-        width: 33.3333333333% !important;
+        flex-basis: 33.3333333333% !important;
     }
 
     .u-2-of-3-bp3 {
-        width: 66.6666666667% !important;
+        flex-basis: 66.6666666667% !important;
+    }
+
+    .u-3-of-3-bp3 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-4-bp3 {
-        width: 25% !important;
+        flex-basis: 25% !important;
+    }
+
+    .u-2-of-4-bp3 {
+        flex-basis: 50% !important;
     }
 
     .u-3-of-4-bp3 {
-        width: 75% !important;
+        flex-basis: 75% !important;
+    }
+
+    .u-4-of-4-bp3 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-5-bp3 {
-        width: 20% !important;
+        flex-basis: 20% !important;
     }
 
     .u-2-of-5-bp3 {
-        width: 40% !important;
+        flex-basis: 40% !important;
     }
 
     .u-3-of-5-bp3 {
-        width: 60% !important;
+        flex-basis: 60% !important;
     }
 
     .u-4-of-5-bp3 {
-        width: 80% !important;
+        flex-basis: 80% !important;
+    }
+
+    .u-5-of-5-bp3 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-6-bp3 {
-        width: 16.6666666667% !important;
+        flex-basis: 16.6666666667% !important;
+    }
+
+    .u-2-of-6-bp3 {
+        flex-basis: 33.3333333333% !important;
+    }
+
+    .u-3-of-6-bp3 {
+        flex-basis: 50% !important;
+    }
+
+    .u-4-of-6-bp3 {
+        flex-basis: 66.6666666667% !important;
     }
 
     .u-5-of-6-bp3 {
-        width: 83.3333333333% !important;
+        flex-basis: 83.3333333333% !important;
+    }
+
+    .u-6-of-6-bp3 {
+        flex-basis: 100% !important;
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 75.0625em) {
     .u-1-of-2-bp4 {
-        width: 50% !important;
+        flex-basis: 50% !important;
+    }
+
+    .u-2-of-2-bp4 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-3-bp4 {
-        width: 33.3333333333% !important;
+        flex-basis: 33.3333333333% !important;
     }
 
     .u-2-of-3-bp4 {
-        width: 66.6666666667% !important;
+        flex-basis: 66.6666666667% !important;
+    }
+
+    .u-3-of-3-bp4 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-4-bp4 {
-        width: 25% !important;
+        flex-basis: 25% !important;
+    }
+
+    .u-2-of-4-bp4 {
+        flex-basis: 50% !important;
     }
 
     .u-3-of-4-bp4 {
-        width: 75% !important;
+        flex-basis: 75% !important;
+    }
+
+    .u-4-of-4-bp4 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-5-bp4 {
-        width: 20% !important;
+        flex-basis: 20% !important;
     }
 
     .u-2-of-5-bp4 {
-        width: 40% !important;
+        flex-basis: 40% !important;
     }
 
     .u-3-of-5-bp4 {
-        width: 60% !important;
+        flex-basis: 60% !important;
     }
 
     .u-4-of-5-bp4 {
-        width: 80% !important;
+        flex-basis: 80% !important;
+    }
+
+    .u-5-of-5-bp4 {
+        flex-basis: 100% !important;
     }
 
     .u-1-of-6-bp4 {
-        width: 16.6666666667% !important;
+        flex-basis: 16.6666666667% !important;
+    }
+
+    .u-2-of-6-bp4 {
+        flex-basis: 33.3333333333% !important;
+    }
+
+    .u-3-of-6-bp4 {
+        flex-basis: 50% !important;
+    }
+
+    .u-4-of-6-bp4 {
+        flex-basis: 66.6666666667% !important;
     }
 
     .u-5-of-6-bp4 {
-        width: 83.3333333333% !important;
+        flex-basis: 83.3333333333% !important;
+    }
+
+    .u-6-of-6-bp4 {
+        flex-basis: 100% !important;
     }
 }
 
-/*------------------------------------*\
-#MEDIA
-\*------------------------------------*/
-
-/*
-    Media Queries
-    ---
-    EXAMPLE Media Queries for Responsive Design.
-    These examples override the primary ('mobile first') styles.
-    USE THEM INLINE!
-*/
-
-/* Extra small devices (portrait phones, less than 576px)
-No media query since this is the default in mobile first design
-*/
-
-/* Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {}
-*/
-
-/* Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}
-*/
-
-/* Large devices (landscape tablets, desktops, 992px and up)
-@media (min-width: 992px) {}
-*/
-
-/* Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
-*/
-
-/*
-    Print styles.
-    ---
-    Inlined to avoid the additional HTTP request:
-    http://www.phpied.com/delay-loading-your-print-css/
-*/
-
-@media print {
-
-    *,
-    *:before,
-    *:after {
-        background: transparent !important;
-        color: #000 !important;
-        /* Black prints faster:
-        http://www.sanbeiji.com/archives/953 */
-        box-shadow: none !important;
-        text-shadow: none !important;
+@media (min-width: 87.5625em) {
+    .u-1-of-2-bp5 {
+        flex-basis: 50% !important;
     }
 
-    a,
-    a:visited {
-        text-decoration: underline;
+    .u-2-of-2-bp5 {
+        flex-basis: 100% !important;
     }
 
-    a[href]:after {
-        content: " (" attr(href) ")";
+    .u-1-of-3-bp5 {
+        flex-basis: 33.3333333333% !important;
     }
 
-    abbr[title]:after {
-        content: " (" attr(title) ")";
+    .u-2-of-3-bp5 {
+        flex-basis: 66.6666666667% !important;
     }
 
-    /*
-    * Don't show links that are fragment identifiers,
-    * or use the `javascript:` pseudo protocol
-    */
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
+    .u-3-of-3-bp5 {
+        flex-basis: 100% !important;
     }
 
-    pre {
-        white-space: pre-wrap !important;
+    .u-1-of-4-bp5 {
+        flex-basis: 25% !important;
     }
 
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
+    .u-2-of-4-bp5 {
+        flex-basis: 50% !important;
     }
 
-    /*
-    * Printing Tables:
-    * http://css-discuss.incutio.com/wiki/Printing_Tables
-    */
-    thead {
-        display: table-header-group;
+    .u-3-of-4-bp5 {
+        flex-basis: 75% !important;
     }
 
-    tr,
-    img {
-        page-break-inside: avoid;
+    .u-4-of-4-bp5 {
+        flex-basis: 100% !important;
     }
 
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
+    .u-1-of-5-bp5 {
+        flex-basis: 20% !important;
     }
 
-    h2,
-    h3 {
-        page-break-after: avoid;
+    .u-2-of-5-bp5 {
+        flex-basis: 40% !important;
+    }
+
+    .u-3-of-5-bp5 {
+        flex-basis: 60% !important;
+    }
+
+    .u-4-of-5-bp5 {
+        flex-basis: 80% !important;
+    }
+
+    .u-5-of-5-bp5 {
+        flex-basis: 100% !important;
+    }
+
+    .u-1-of-6-bp5 {
+        flex-basis: 16.6666666667% !important;
+    }
+
+    .u-2-of-6-bp5 {
+        flex-basis: 33.3333333333% !important;
+    }
+
+    .u-3-of-6-bp5 {
+        flex-basis: 50% !important;
+    }
+
+    .u-4-of-6-bp5 {
+        flex-basis: 66.6666666667% !important;
+    }
+
+    .u-5-of-6-bp5 {
+        flex-basis: 83.3333333333% !important;
+    }
+
+    .u-6-of-6-bp5 {
+        flex-basis: 100% !important;
     }
 }
